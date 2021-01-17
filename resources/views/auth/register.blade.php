@@ -6,7 +6,6 @@
 
         <div class="w-full lg:w-7/12">
             <x-jet-authentication-card>
-                <x-slot name="title"></x-slot>
 
                 <x-jet-validation-errors class="mb-4" />
 
@@ -14,46 +13,25 @@
                     @csrf
 
                     <div>
-                        @include('components.input',[
-                            'id' => 'name',
-                            'type' => 'text',
-                            'name' => 'name',
-                            'label' => __('common.name'),
-                            'required' => true,
-                            'autocomplete' => 'name',
-                        ])
+                        <x-jet-input id="name" type="text"
+                            name="name" :value="old('name')" required autofocus autocomplete="name"
+                            label="{{ __('common.name') }}"/>
                     </div>
 
                     <div class="mt-4">
-                        @include('components.input',[
-                            'id' => 'email',
-                            'type' => 'email',
-                            'name' => 'email',
-                            'label' => __('common.email'),
-                            'required' => true,
-                            'autocomplete' => 'email',
-                            'value' => "old('email')",
-                        ])
+                        <x-jet-input id="email" type="text"
+                            name="email" :value="old('email')" required autocomplete="email"
+                            label="{{ __('common.email') }}"/>
                     </div>
 
                     <div class="mt-4">
-                        @include('components.input',[
-                            'id' => 'password',
-                            'type' => 'password',
-                            'name' => 'password',
-                            'label' => __('common.password'),
-                            'required' => true,
-                        ])
+                        <x-jet-input id="password" type="password" name="password" required
+                            label="{{ __('common.password') }}"/>
                     </div>
 
                     <div class="mt-4">
-                        @include('components.input',[
-                            'id' => 'password_confirmation',
-                            'type' => 'password',
-                            'name' => 'password_confirmation',
-                            'label' => __('common.confirm_password'),
-                            'required' => true,
-                        ])
+                        <x-jet-input id="password_confirmation" type="password" name="password_confirmation" required
+                            label="{{ __('common.confirm_password') }}"/>
                     </div>
 
                     <div class="flex items-center justify-end mt-4">
