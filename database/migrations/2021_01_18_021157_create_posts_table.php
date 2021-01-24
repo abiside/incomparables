@@ -16,13 +16,21 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->text('slug');
+            $table->dateTimeTz('date')
+                ->nullable()
+                ->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('slug', 512);
+            $table->string('link', 512)->unique();
             $table->text('content');
+            $table->string('thumbnail', 512)->nullable();
+            $table->string('image', 512)->nullable();
+            $table->string('author')->nullable();
             $table->foreignId('post_source_id')
-                ->constrained('post_sources');
+                ->constrained();
+            $table->integer('visits')->default(0);
 
-            $table->timestamps();
-            $table->softDeletes();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

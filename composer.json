@@ -39,7 +39,11 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "Abiside\\NewScrap\\": "packages/abiside/newscrap/src/",
+            "PHPHtmlParser\\": "packages/abiside/newscrap/vendor/paquettg/php-html-parser/src/PHPHtmlParser",
+            "stringEncode\\": "packages/abiside/newscrap/vendor/paquettg/string-encode/src/",
+            "MyCLabs\\Enum\\": "packages/abiside/newscrap/vendor/myclabs/php-enum/src/"
         }
     },
     "autoload-dev": {

@@ -14,13 +14,23 @@ class PostSourcesSeeder extends Seeder
      */
     public function run()
     {
-        // Save the main post sources
-        PostSource::create([
-            'name' => 'SoloTigres',
-        ]);
+        $sources = [
+            'Superlider' => [
+                'category/tigres',
+            ],
+        ];
 
-        PostSource::create([
-            'name' => 'Superlider',
-        ]);
+        foreach ($sources as $sourceName => $feeds) {
+            $source = PostSource::create([
+                'name' => $sourceName,
+            ]);
+
+            foreach ($feeds as $feed) {
+                $source->feeds()->create([
+                    'feed' => $feed,
+                ]);
+            }
+        }
+
     }
 }

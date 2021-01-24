@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Abiside\NewScrap\NewScrapServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -228,6 +229,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'NewScrap' => Abiside\NewScrap\Facades\NewScrapFacade::class,
+        'HTMLDomParser' => Ammadeuss\LaravelHtmlDomParser\Facade::class
 
     ],
 

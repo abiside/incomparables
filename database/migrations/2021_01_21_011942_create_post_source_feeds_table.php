@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostSourcesTable extends Migration
+class CreatePostSourceFeedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreatePostSourcesTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_sources', function (Blueprint $table) {
+        Schema::create('post_source_feeds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('logo_image')->nullable();
-            $table->boolean('active')->default(true);
+            $table->foreignId('post_source_id')
+                ->constrained();
+            $table->string('feed');
             $table->timestampsTz();
             $table->softDeletesTz();
+
+            $table->unique(['post_source_id', 'feed']);
         });
     }
 
@@ -31,6 +32,6 @@ class CreatePostSourcesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post_sources');
+        Schema::dropIfExists('post_source_feeds');
     }
 }
