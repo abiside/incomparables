@@ -19,7 +19,8 @@ class CreatePostsTable extends Migration
             $table->dateTimeTz('date')
                 ->nullable();
             $table->string('slug', 512);
-            $table->string('link', 512)->unique();
+            // TODO: Add unique for link
+            $table->string('link', 512);
             $table->text('content');
             $table->string('thumbnail', 512)->nullable();
             $table->string('image', 512)->nullable();
