@@ -48,6 +48,7 @@ class NewsScraper extends Command
             $this->info("Scraping {$source->name}");
 
             $sourceFeeds = $source->feeds()->pluck('feed')->toArray();
+            $this->line("{$sourceFeeds->count()} feeds for {$source->name} found");
 
             $posts = $scraper->getLatestPosts($source->slug, $sourceFeeds);
             $this->line("{$posts->count()} posts from {$source->name} found");
