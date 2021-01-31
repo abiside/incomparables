@@ -165,7 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Abiside\NewScrap\NewScrapServiceProvider::class,
 
         /*
          * Application Service Providers...
