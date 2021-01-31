@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Carbon;
 use App\Models\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,12 +14,29 @@ class Post extends Model
     use HasSlug;
 
     protected $fillable = [
+        'date',
         'title',
         'link',
         'thumbnail',
         'image',
         'content',
     ];
+
+    protected $casts = [
+        'date' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->date = Carbon::now();
+        });
+    }
 
     public function source()
     {
@@ -35,7 +53,7 @@ class Post extends Model
     {
         return $query->whereHas('source', function($query) {
             return $query->active();
-        });
+        })->whereNotNull('date');
     }
 
     /**

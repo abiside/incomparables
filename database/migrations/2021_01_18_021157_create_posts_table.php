@@ -17,8 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->text('title');
             $table->dateTimeTz('date')
-                ->nullable()
-                ->default(DB::raw('CURRENT_TIMESTAMP'));
+                ->nullable();
             $table->string('slug', 512);
             $table->string('link', 512)->unique();
             $table->text('content');
