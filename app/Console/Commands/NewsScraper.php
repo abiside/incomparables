@@ -45,17 +45,23 @@ class NewsScraper extends Command
         $sources = PostSource::active()->get();
 
         $sources->each(function ($source) use ($scraper) {
+            $this->info("Scraping {$source->name}");
+
             $sourceFeeds = $source->feeds()->pluck('feed')->toArray();
 
             $posts = $scraper->getLatestPosts($source->slug, $sourceFeeds);
+            $this->line("{$posts->count()} posts from {$source->name} found");
 
             // get the posts that are not saved in the database
             $postsToSave = $posts->map(function ($post) use ($scraper) {
                 $link = Arr::get($post,'link');
 
                 if (Post::getIsMissingByLink($link)) {
+                    $this->info("Looking for {$link}");
+
                     return $scraper->getPost($link, $post);
                 }
+                $this->line("Skippinng for {$link}");
             })->whereNotNull();
 
             $source->posts()->createMany($postsToSave);
