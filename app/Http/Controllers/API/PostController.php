@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Resources\PostOverviewResource;
-
+use App\Http\Resources\PostResource;
 
 class PostController extends Controller
 {
@@ -28,8 +28,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return PostResource::make($post);
     }
 }

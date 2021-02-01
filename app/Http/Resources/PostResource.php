@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PostOverviewResource extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,13 @@ class PostOverviewResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
-            'extract' => $this->extract,
+            'content' => $this->content,
             'thumbnail' => $this->thumbnail,
             'date' => $this->date,
-            'source' => $this->source->name,
+            'link' => $this->link,
+            'image' => $this->image,
+            // TODO: Add the full source information
+            //'source' => $this->source->name,
         ];
     }
 }
