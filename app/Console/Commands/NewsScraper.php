@@ -15,7 +15,7 @@ class NewsScraper extends Command
      *
      * @var string
      */
-    protected $signature = 'scraping:news';
+    protected $signature = 'scraping:news {source=all}';
 
     /**
      * The console command description.
@@ -42,7 +42,12 @@ class NewsScraper extends Command
     public function handle()
     {
         $scraper = new NewScraper();
-        $sources = PostSource::active()->get();
+        $source = $this->argument('source');
+
+        $sources = PostSource::active()
+            ->when($source != 'all', function($query) use ($source){
+                return $query->where('slug', $source);
+            })->get();
 
         $sources->each(function ($source) use ($scraper) {
             $this->info("Scraping {$source->name}");
@@ -64,7 +69,9 @@ class NewsScraper extends Command
                     return $scraper->getPost($link, $post);
                 }
                 $this->line("Skippinng for {$link}");
-            })->whereNotNull();
+            })
+            ->whereNotNull()
+            ->reverse();
 
             $source->posts()->createMany($postsToSave);
         });
