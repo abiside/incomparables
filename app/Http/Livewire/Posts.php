@@ -16,6 +16,7 @@ class Posts extends Component
     {
         return Post::active()
             ->orderBy('date', 'DESC')
+            ->orderBy('id', 'DESC')
             ->paginate();
     }
 }
