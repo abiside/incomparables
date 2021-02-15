@@ -76,4 +76,18 @@ class Post extends Model
     {
         return strip_tags(substr($this->content, 0, 255));
     }
+
+    /**
+     * Return the public url for the post
+     *
+     * @return  string
+     */
+    public function getPublicUrlAttribute()
+    {
+        $year = $this->date->format('Y');
+        $month = $this->date->format('m');
+        $day = $this->date->format('d');
+
+        return url("/noticias/{$year}/{$month}/{$day}/{$this->slug}");
+    }
 }

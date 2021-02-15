@@ -31,4 +31,8 @@ class PostSource extends Model
         return $query->where('active', true);
     }
 
+    public function getThumbAttribute()
+    {
+        return asset("/images/sources/{$this->slug}.jpg");
+    }
 }

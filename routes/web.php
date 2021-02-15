@@ -2,9 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomepageController;
-use Livewire\Livewire;
 use App\Http\Livewire\Homepage;
+use App\Http\Livewire\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,9 @@ use App\Http\Livewire\Homepage;
 */
 
 Route::get('/', Homepage::class);
+Route::prefix('noticias')->group(function () {
+    Route::get('/{year}/{month}/{day}/{slug}', Post::class);
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
