@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/abiside/newscrap.git",
-                "reference": "a8e753a21c5af3af1414155fa28cdfd370978ef9"
+                "reference": "70865597faa12c7f390ab97fe9f62539353d1197"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/abiside/newscrap/zipball/a8e753a21c5af3af1414155fa28cdfd370978ef9",
-                "reference": "a8e753a21c5af3af1414155fa28cdfd370978ef9",
+                "url": "https://api.github.com/repos/abiside/newscrap/zipball/70865597faa12c7f390ab97fe9f62539353d1197",
+                "reference": "70865597faa12c7f390ab97fe9f62539353d1197",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 }
             ],
             "description": "Laravel package for blogs and news website scraping",
-            "time": "2021-02-15T03:39:36+00:00"
+            "time": "2021-02-15T04:51:42+00:00"
         },
         {
             "name": "asm89/stack-cors",
