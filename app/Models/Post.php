@@ -90,4 +90,14 @@ class Post extends Model
 
         return url("/noticias/{$year}/{$month}/{$day}/{$this->slug}");
     }
+
+    /**
+     * Return the url for the app
+     *
+     * @return  string
+     */
+    public function getContentUrlAttribute()
+    {
+       return $this->publicUrl . "?onlyContent=true";
+    }
 }

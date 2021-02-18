@@ -42,7 +42,8 @@
                     <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Tu marca puede estar aquí</h1>
                     <p class="leading-relaxed mb-3">Anúnciate directamente a la afición incomparable. Más de 1,000,000 visitantes potenciales podrán ver tu anuncio.</p>
                     @include('components.button',[
-                        'label' => __('Contactar')
+                        'label' => __('Contactar'),
+                        'href' => 'mailto:contacto@puntoindex.com',
                     ])
                 </div>
             </div>
@@ -50,18 +51,4 @@
     </div>
 </section>
 
-@push('styles')
-<style>
-.post-wrapper > p {
-    padding-bottom: 20px;
-}
-.post-wrapper > div {
-    padding-bottom: 20px;
-}
-</style>
-@endpush
-
-@push('scripts')
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<script async src="//www.instagram.com/embed.js"></script>
-@endpush
+@include('partials.post-scripts')

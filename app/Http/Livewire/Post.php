@@ -12,9 +12,23 @@ class Post extends Component
     /** @var \App\Models\Post */
     public $post;
 
+    /** @var string */
+    public $layout;
+
+    /** @var string */
+    public $view;
+
     public function mount(Request $request, string $year, string $month, string $day, string $slug)
     {
         $date = Carbon::parse("{$year}-{$month}-{$day}");
+        $this->layout = 'layouts.app';
+        $this->view = 'livewire.post-body';
+
+        if ($request->onlyContent) {
+            $this->layout = 'layouts.base';
+            $this->view = 'livewire.post-body';
+        }
+
 
         $this->post = Model::whereDate('date', $date)
             ->where('slug', $slug)
@@ -23,6 +37,7 @@ class Post extends Component
 
     public function render()
     {
-        return view('livewire.post');
+        //dd($this->layout);
+        return view($this->view)->layout($this->layout);
     }
 }
