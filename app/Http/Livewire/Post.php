@@ -22,7 +22,7 @@ class Post extends Component
     {
         $date = Carbon::parse("{$year}-{$month}-{$day}");
         $this->layout = 'layouts.app';
-        $this->view = 'livewire.post-body';
+        $this->view = 'livewire.post';
 
         if ($request->onlyContent) {
             $this->layout = 'layouts.base';
