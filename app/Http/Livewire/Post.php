@@ -37,7 +37,7 @@ class Post extends Component
 
     public function render()
     {
-        //dd($this->layout);
-        return view($this->view)->layout($this->layout);
+        return view($this->view)
+            ->layout($this->layout);
     }
 }
