@@ -7,7 +7,7 @@ use App\Models\Post as Model;
 use Livewire\Component;
 use Illuminate\Http\Request;
 
-class Post extends Component
+class Post extends BasePage
 {
     /** @var \App\Models\Post */
     public $post;
@@ -33,6 +33,14 @@ class Post extends Component
         $this->post = Model::whereDate('date', $date)
             ->where('slug', $slug)
             ->firstOrFail();
+
+        $this->setMetaData([
+            'title' => $this->post->title,
+            'description' => $this->post->extract,
+            'image' => $this->post->image,
+            'url' => $this->post->publicUrl,
+            'twitterImage' => $this->post->image,
+        ]);
     }
 
     public function render()

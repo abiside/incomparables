@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Homepage extends Component
+class Homepage extends BasePage
 {
     public function render()
     {

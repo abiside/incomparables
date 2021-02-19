@@ -1,3 +1,9 @@
+@section('metadata')
+    @include('partials.metadata', [
+        'pageMeta' => $this->pageMeta,
+    ])
+@endsection
+
 <section class="text-gray-600 body-font">
     <div class="flex">
         <div class="w-full md:w-2/3 xl:w-3/4">
