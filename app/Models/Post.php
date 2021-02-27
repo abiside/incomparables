@@ -74,7 +74,7 @@ class Post extends Model
      */
     public function getExtractAttribute()
     {
-        return strip_tags(substr($this->content, 0, 255));
+        return substr(strip_tags($this->content), 0, 255);
     }
 
     /**
