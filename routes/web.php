@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Livewire\Homepage;
-use App\Http\Livewire\Post;
+use App\Livewire\Homepage;
+use App\Livewire\Post;
 
 /*
 |--------------------------------------------------------------------------
