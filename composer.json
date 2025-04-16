@@ -9,7 +9,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "abiside/newscrap": "dev-master",
         "guzzlehttp/guzzle": "^7.8",
         "laravel/framework": "^12.0",
         "laravel/jetstream": "^5.0",
@@ -45,7 +44,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Abiside\\NewScrap\\": "packages/abiside/newscrap/src/",
+            "Abiside\\NewScrap\\": "packages/newscrap/src/",
             "PHPHtmlParser\\": "packages/abiside/newscrap/vendor/paquettg/php-html-parser/src/PHPHtmlParser",
             "stringEncode\\": "packages/abiside/newscrap/vendor/paquettg/string-encode/src/",
             "MyCLabs\\Enum\\": "packages/abiside/newscrap/vendor/myclabs/php-enum/src/"
