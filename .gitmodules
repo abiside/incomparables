@@ -1,0 +1,3 @@
+[submodule "packages/abiside/newscrap"]
+	path = packages/abiside/newscrap
+	url = https://github.com/abiside/newscrap
