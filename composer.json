@@ -44,7 +44,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Abiside\\NewScrap\\": "packages/newscrap/src/",
+            "Abiside\\NewScrap\\": "packages/abiside/newscrap/src/",
             "PHPHtmlParser\\": "packages/abiside/newscrap/vendor/paquettg/php-html-parser/src/PHPHtmlParser",
             "stringEncode\\": "packages/abiside/newscrap/vendor/paquettg/string-encode/src/",
             "MyCLabs\\Enum\\": "packages/abiside/newscrap/vendor/myclabs/php-enum/src/"
